@@ -3,16 +3,15 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/hooks/use-auth';
-import { loginWithGoogle, logout } from '@/lib/firebase';
-import { getQuestions, saveResult, getLeaderboard, seedQuestionsIfEmpty, Question, UserResult } from '@/lib/db';
+import { getQuestions, saveResult, getLeaderboard, Question, UserResult } from '@/lib/db';
 import { getAiExplanation } from '@/lib/gemini';
-import { CheckCircle2, XCircle, LogOut, Trophy, Brain, Sparkles, ChevronRight, RefreshCw, Loader2 } from 'lucide-react';
+import { CheckCircle2, XCircle, LogOut, Trophy, Brain, Sparkles, ChevronRight, RefreshCw, Loader2, User } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
 const ReactConfetti = dynamic(() => import('react-confetti'), { ssr: false });
 
 export default function QuizApp() {
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, login, logout } = useAuth();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -23,12 +22,12 @@ export default function QuizApp() {
   const [showResults, setShowResults] = useState(false);
   const [leaderboard, setLeaderboard] = useState<UserResult[]>([]);
   const [loading, setLoading] = useState(true);
+  const [guestName, setGuestName] = useState('');
 
   useEffect(() => {
     async function init() {
       if (user) {
         setLoading(true);
-        await seedQuestionsIfEmpty();
         const data = await getQuestions();
         setQuestions(data);
         const lb = await getLeaderboard();
@@ -38,6 +37,13 @@ export default function QuizApp() {
     }
     init();
   }, [user]);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (guestName.trim()) {
+      login(guestName.trim());
+    }
+  };
 
   const handleAnswer = async (index: number) => {
     if (isAnswered) return;
@@ -107,14 +113,30 @@ export default function QuizApp() {
           <div className="bg-[#eff6ff] w-16 h-16 rounded-2xl flex items-center justify-center mx-auto">
             <Brain className="w-8 h-8 text-[#2563eb]" />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-[#0f172a]">UNIVESP Quiz Master</h1>
-          <p className="text-[#64748b] text-sm">Faça login para testar seus conhecimentos e entrar no ranking em tempo real.</p>
-          <button 
-            onClick={loginWithGoogle}
-            className="w-full bg-[#2563eb] text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-sm"
-          >
-            Entrar com Google
-          </button>
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tight text-[#0f172a]">UNIVESP Quiz Master</h1>
+            <p className="text-[#64748b] text-sm">Entre com seu nome para começar o quiz e salvar seu progresso localmente.</p>
+          </div>
+          
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+              <input 
+                type="text" 
+                value={guestName}
+                onChange={(e) => setGuestName(e.target.value)}
+                placeholder="Seu nome"
+                required
+                className="w-full pl-11 pr-4 py-4 rounded-xl border border-[#e2e8f0] focus:ring-2 focus:ring-[#2563eb] outline-none transition-all text-[#1e293b]"
+              />
+            </div>
+            <button 
+              type="submit"
+              className="w-full bg-[#2563eb] text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-sm"
+            >
+              Começar agora
+            </button>
+          </form>
         </motion.div>
       </div>
     );
