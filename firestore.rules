@@ -1,0 +1,87 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Strict verified email check for writes
+    function isVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    // Admin check based on user email from runtime
+    function isAdmin() {
+      return isVerified() && request.auth.token.email == 'froesvieira@gmail.com';
+    }
+
+    function isOwner(userId) {
+      return isVerified() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    // Connection test document
+    match /test/connection {
+      allow read: if isSignedIn();
+    }
+
+    // Questions collection
+    match /questions/{questionId} {
+      allow read: if isSignedIn();
+      // Allow the admin to seed questions from the client
+      allow create: if isAdmin() && isValidQuestion(incoming());
+      allow update, delete: if isAdmin();
+    }
+
+    function isValidQuestion(data) {
+      return data.keys().hasAll(['text', 'options', 'correctOptionIndex', 'explanation', 'category'])
+        && data.keys().size() == 5
+        && data.text is string && data.text.size() <= 5000
+        && data.options is list && data.options.size() == 5
+        && data.correctOptionIndex is int
+        && data.correctOptionIndex >= 0 && data.correctOptionIndex <= 4
+        && data.explanation is string && data.explanation.size() <= 5000
+        && data.category is string;
+    }
+
+    // Results collection
+    match /results/{resultId} {
+      // Query Enforcer: evaluating resource data
+      allow list: if isSignedIn() && resource.data.score >= 0;
+      allow get: if isSignedIn() && isValidId(resultId);
+      allow create: if isVerified() 
+        // && isValidId(resultId) // resultId is auto-generated in addDoc, so we don't check it for list queries but for get we do
+        && isOwner(incoming().userId)
+        && isValidResult(incoming());
+      allow update: if false; // Results are immutable
+      allow delete: if false;
+    }
+
+    function isValidResult(data) {
+      return data.keys().hasAll(['userId', 'userName', 'score', 'totalQuestions', 'timestamp'])
+        && data.keys().size() == 5
+        && data.userId is string
+        && data.userName is string
+        && data.userName.size() <= 100
+        && data.score is int
+        && data.score >= 0
+        && data.totalQuestions is int
+        && data.totalQuestions > 0
+        && data.score <= data.totalQuestions
+        && (data.timestamp == request.time || data.timestamp is timestamp);
+    }
+  }
+}

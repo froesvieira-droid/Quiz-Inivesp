@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "Question": {
+      "title": "Question",
+      "description": "Uma questão do quiz extraída da prova da UNIVESP.",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "O enunciado da questão."
+        },
+        "options": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "As alternativas da questão."
+        },
+        "correctOptionIndex": {
+          "type": "integer",
+          "description": "O índice da alternativa correta (0-4)."
+        },
+        "explanation": {
+          "type": "string",
+          "description": "A explicação detalhada da resposta."
+        },
+        "category": {
+          "type": "string",
+          "description": "A disciplina ou categoria da questão (ex: Matemática, Português)."
+        }
+      },
+      "required": ["text", "options", "correctOptionIndex", "explanation"]
+    },
+    "UserResult": {
+      "title": "User Result",
+      "description": "O resultado de um quiz realizado por um usuário.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "O ID do usuário que realizou o quiz."
+        },
+        "userName": {
+          "type": "string",
+          "description": "O nome do usuário."
+        },
+        "score": {
+          "type": "integer",
+          "description": "Número de acertos."
+        },
+        "totalQuestions": {
+          "type": "integer",
+          "description": "Número total de questões respondidas."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Quando o quiz foi concluído."
+        }
+      },
+      "required": ["userId", "score", "totalQuestions", "timestamp"]
+    }
+  },
+  "firestore": {
+    "questions": {
+      "schema": "Question",
+      "description": "Coleção de questões do quiz."
+    },
+    "results": {
+      "schema": "UserResult",
+      "description": "Coleção de resultados dos usuários para o ranking."
+    }
+  }
+}
