@@ -17,10 +17,10 @@ export const ALL_QUESTIONS: Question[] = [
     category: "Matemática"
   },
   {
-    text: "Depreende-se da análise do cartum que as propagandas são:",
+    text: "Analise o cartum para responder à questão: No cartum, um personagem aparece extremamente envelhecido, segurando o fone de um telefone, enquanto uma voz eletrônica diz: 'sua ligação é muito importante para nós...'. Depreende-se da análise do cartum que as propagandas e mensagens de atendimento desse tipo são:",
     options: ["empáticas", "comedidas", "manipuladoras", "fidedignas", "detalhistas"],
     correctOptionIndex: 2,
-    explanation: "O cartum ironiza a frase 'sua ligação é muito importante para nós' enquanto o homem aguarda infinitamente, sugerindo que as propagandas tentam manipular a percepção do consumidor.",
+    explanation: "O cartum ironiza a frase padrão de teleatendimento 'sua ligação é muito importante para nós' enquanto o personagem aguarda tanto tempo que chega a envelhecer (ou tornar-se uma caveira em algumas versões), sugerindo que tais mensagens são manipuladoras e não refletem a realidade do descaso com o consumidor.",
     category: "Português"
   },
   {
@@ -950,6 +950,462 @@ export const ALL_QUESTIONS: Question[] = [
     options: ["La Niña", "El Niño", "Monções", "Tufão", "Furacão"],
     correctOptionIndex: 1,
     explanation: "O El Niño altera padrões de chuva e temperatura em todo o mundo.",
+    category: "Geografia"
+  },
+  // --- BATCH 3 (65 mais) ---
+  {
+    text: "Qual é o valor de x na proporção x/4 = 9/12?",
+    options: ["2", "3", "4", "5", "6"],
+    correctOptionIndex: 1,
+    explanation: "Multiplicando em cruz: 12x = 36. Logo, x = 36/12 = 3.",
+    category: "Matemática"
+  },
+  {
+    text: "O volume de um cubo de aresta 3 cm é:",
+    options: ["9 cm³", "18 cm³", "27 cm³", "54 cm³", "81 cm³"],
+    correctOptionIndex: 2,
+    explanation: "Volume = aresta³ = 3³ = 27 cm³.",
+    category: "Matemática"
+  },
+  {
+    text: "A raiz quadrada de 144 é:",
+    options: ["10", "11", "12", "13", "14"],
+    correctOptionIndex: 2,
+    explanation: "12 * 12 = 144.",
+    category: "Matemática"
+  },
+  {
+    text: "Se um produto custa R$ 80,00 e tem um desconto de 25%, seu novo preço é:",
+    options: ["R$ 60,00", "R$ 64,00", "R$ 65,00", "R$ 70,00", "R$ 75,00"],
+    correctOptionIndex: 0,
+    explanation: "25% de 80 é 20. 80 - 20 = 60.",
+    category: "Matemática"
+  },
+  {
+    text: "O valor numérico da expressão x² - 5x + 6 para x=2 é:",
+    options: ["0", "2", "4", "6", "10"],
+    correctOptionIndex: 0,
+    explanation: "2² - 5(2) + 6 = 4 - 10 + 6 = 0.",
+    category: "Matemática"
+  },
+  {
+    text: "Quantos segundos existem em 1 hora?",
+    options: ["60", "360", "600", "3600", "36000"],
+    correctOptionIndex: 3,
+    explanation: "1 hora = 60 minutos * 60 segundos = 3600 segundos.",
+    category: "Matemática"
+  },
+  {
+    text: "Qual é a média aritmética simples de 7, 8 e 9?",
+    options: ["7", "7.5", "8", "8.5", "9"],
+    correctOptionIndex: 2,
+    explanation: "(7+8+9)/3 = 24/3 = 8.",
+    category: "Matemática"
+  },
+  {
+    text: "O MMC (Mínimo Múltiplo Comum) entre 4 e 6 é:",
+    options: ["2", "12", "24", "48", "10"],
+    correctOptionIndex: 1,
+    explanation: "Múltiplos de 4: 4, 8, 12... Múltiplos de 6: 6, 12... O menor comum é 12.",
+    category: "Matemática"
+  },
+  {
+    text: "Aponte a alternativa em que a palavra destacada é um advérbio:",
+    options: ["Ele FALOU muito.", "O LIVRO é bom.", "A CASA azul.", "Maria é ALTA.", "O CARRO corre."],
+    correctOptionIndex: 0,
+    explanation: "Em 'falou muito', 'muito' intensifica o verbo (adverbio de intensidade).",
+    category: "Português"
+  },
+  {
+    text: "Qual destas palavras é um substantivo abstrato?",
+    options: ["Árvore", "Felicidade", "Caneta", "Pedra", "Computador"],
+    correctOptionIndex: 1,
+    explanation: "Substantivos abstratos dependem de outro ser para existir (sentimentos, estados).",
+    category: "Português"
+  },
+  {
+    text: "Identifique a oração em voz passiva:",
+    options: ["O menino comeu o bolo.", "O bolo foi comido pelo menino.", "O menino comerá o bolo.", "Come-se bolo.", "Bolo o menino comeu."],
+    correctOptionIndex: 1,
+    explanation: "A voz passiva é caracterizada pelo sujeito sofrendo a ação.",
+    category: "Português"
+  },
+  {
+    text: "Qual é o antônimo de 'Efêmero'?",
+    options: ["Breve", "Passageiro", "Duradouro", "Curto", "Rápido"],
+    correctOptionIndex: 2,
+    explanation: "Efêmero significa algo que dura pouco; duradouro é o oposto.",
+    category: "Português"
+  },
+  {
+    text: "Escolha a grafia correta:",
+    options: ["Excessão", "Exceção", "Esceção", "Excessão", "Exseção"],
+    correctOptionIndex: 1,
+    explanation: "A palavra 'exceção' deriva de 'exceto'.",
+    category: "Português"
+  },
+  {
+    text: "O plural de 'cidadão' é:",
+    options: ["Cidadões", "Cidadães", "Cidadãos", "Cidadãos", "Cidadons"],
+    correctOptionIndex: 2,
+    explanation: "Regra gramatical: o plural de cidadão é cidadãos.",
+    category: "Português"
+  },
+  {
+    text: "A figura de linguagem 'O jardim sorria para mim' é uma:",
+    options: ["Metáfora", "Hipérbole", "Personificação", "Antítese", "Comparação"],
+    correctOptionIndex: 2,
+    explanation: "Personificação (ou prosopopeia) atribui características humanas a seres inanimados.",
+    category: "Português"
+  },
+  {
+    text: "Qual é o sinônimo de 'Meticuloso'?",
+    options: ["Descuidado", "Detalhista", "Preguiçoso", "Rápido", "Simples"],
+    correctOptionIndex: 1,
+    explanation: "Meticuloso é quem faz as coisas com extremo cuidado e atenção aos detalhes.",
+    category: "Português"
+  },
+  {
+    text: "Choose the correct preposition: 'He is interested ___ learning music.'",
+    options: ["at", "on", "in", "to", "with"],
+    correctOptionIndex: 2,
+    explanation: "Common collocation: 'Interested in'.",
+    category: "Inglês"
+  },
+  {
+    text: "What is the opposite of 'Hard'?",
+    options: ["Heavy", "Strong", "Easy", "Fast", "Long"],
+    correctOptionIndex: 2,
+    explanation: "'Hard' can mean difficult; 'Easy' is the opposite.",
+    category: "Inglês"
+  },
+  {
+    text: "Which of these is a fruit?",
+    options: ["Onion", "Carrot", "Potato", "Apple", "Rice"],
+    correctOptionIndex: 3,
+    explanation: "Apple is a fruit.",
+    category: "Inglês"
+  },
+  {
+    text: "Select the correct plural: 'One person, two ____.'",
+    options: ["persons", "peoples", "people", "persones", "peopler"],
+    correctOptionIndex: 2,
+    explanation: "'People' is the irregular plural of 'person'.",
+    category: "Inglês"
+  },
+  {
+    text: "How do you say 'obrigado' in English?",
+    options: ["Please", "Sorry", "Welcome", "Thank you", "Hello"],
+    correctOptionIndex: 3,
+    explanation: "Thank you = Obrigado.",
+    category: "Inglês"
+  },
+  {
+    text: "Which color is the result of mixing Blue and Yellow?",
+    options: ["Purple", "Green", "Orange", "Pink", "Brown"],
+    correctOptionIndex: 1,
+    explanation: "Blue + Yellow = Green.",
+    category: "Inglês"
+  },
+  {
+    text: "The past tense of 'Go' is:",
+    options: ["Goed", "Gone", "Went", "Goin", "Goes"],
+    correctOptionIndex: 2,
+    explanation: "Go is an irregular verb: go - went - gone.",
+    category: "Inglês"
+  },
+  {
+    text: "Which of these is NOT a vehicle?",
+    options: ["Car", "Bus", "Bike", "Bread", "Plane"],
+    correctOptionIndex: 3,
+    explanation: "Bread is food, not a vehicle.",
+    category: "Inglês"
+  },
+  {
+    text: "No vácuo, a luz viaja a uma velocidade aproximada de:",
+    options: ["300 km/s", "300.000 km/s", "340 m/s", "1.000 km/h", "3.000 m/s"],
+    correctOptionIndex: 1,
+    explanation: "A velocidade da luz no vácuo é de aproximadamente 300.000 km/s.",
+    category: "Física"
+  },
+  {
+    text: "A primeira lei de Newton é conhecida como lei da:",
+    options: ["Ação e reação", "Inércia", "Força", "Gravidade", "Massa"],
+    correctOptionIndex: 1,
+    explanation: "A Primeira Lei de Newton afirma que um corpo tende a manter seu estado de repouso ou movimento uniforme.",
+    category: "Física"
+  },
+  {
+    text: "O instrumento utilizado para medir a temperatura é o:",
+    options: ["Barômetro", "Higrômetro", "Termômetro", "Anemômetro", "Velocímetro"],
+    correctOptionIndex: 2,
+    explanation: "Termômetro mede temperatura corporais ou ambientes.",
+    category: "Física"
+  },
+  {
+    text: "A energia associada ao movimento de um corpo é a energia:",
+    options: ["Potencial", "Térmica", "Cinética", "Elétrica", "Química"],
+    correctOptionIndex: 2,
+    explanation: "Energia cinética é a energia da massa em movimento.",
+    category: "Física"
+  },
+  {
+    text: "Qual dessas partículas tem carga elétrica negativa?",
+    options: ["Próton", "Nêutron", "Elétron", "Núcleo", "Atómo"],
+    correctOptionIndex: 2,
+    explanation: "Elétrons orbitam o núcleo e possuem carga negativa.",
+    category: "Física"
+  },
+  {
+    text: "A unidade de resistência elétrica no Sistema Internacional é o:",
+    options: ["Volt", "Ampère", "Watt", "Ohm", "Joule"],
+    correctOptionIndex: 3,
+    explanation: "O Ohm (Ω) mede a oposição à passagem de corrente elétrica.",
+    category: "Física"
+  },
+  {
+    text: "O som é uma onda do tipo:",
+    options: ["Eletromagnética", "Mecânica", "Transversal", "Luminosa", "Vácuo"],
+    correctOptionIndex: 1,
+    explanation: "Ondas mecânicas (como o som) precisam de um meio material para se propagar.",
+    category: "Física"
+  },
+  {
+    text: "A pressão atmosférica ao nível do mar é aproximadamente:",
+    options: ["1 atm", "2 atm", "0,5 atm", "10 atm", "0 atm"],
+    correctOptionIndex: 0,
+    explanation: "1 atm (atmosfera) é o valor padrão ao nível do mar.",
+    category: "Física"
+  },
+  {
+    text: "O símbolo químico do Ouro é:",
+    options: ["Or", "Ou", "Au", "Ag", "Fe"],
+    correctOptionIndex: 2,
+    explanation: "Vem do latim 'Aurum'.",
+    category: "Química"
+  },
+  {
+    text: "Qual é o pH de uma substância neutra?",
+    options: ["0", "1", "7", "10", "14"],
+    correctOptionIndex: 2,
+    explanation: "Escala de pH: 0-6 ácido, 7 neutro, 8-14 básico (alcalino).",
+    category: "Química"
+  },
+  {
+    text: "O principal gás responsável pelo efeito estufa é o:",
+    options: ["Oxigênio", "Nitrogênio", "Dióxido de Carbono", "Hélio", "Argônio"],
+    correctOptionIndex: 2,
+    explanation: "O CO₂ é o principal gás emitido por atividades humanas que causa aquecimento global.",
+    category: "Química"
+  },
+  {
+    text: "A passagem do estado sólido para o líquido chama-se:",
+    options: ["Vaporização", "Solidificação", "Fusão", "Condensação", "Sublimação"],
+    correctOptionIndex: 2,
+    explanation: "Fusão é o derretimento do sólido.",
+    category: "Química"
+  },
+  {
+    text: "A fórmula da água é:",
+    options: ["HO₂", "H₂O", "OH", "CO₂", "NaCl"],
+    correctOptionIndex: 1,
+    explanation: "Dois átomos de hidrogênio e um de oxigênio.",
+    category: "Química"
+  },
+  {
+    text: "Qual destes elementos é um gás nobre?",
+    options: ["Oxigênio", "Hidrogênio", "Hélio", "Cloro", "Lítio"],
+    correctOptionIndex: 2,
+    explanation: "Gases nobres ficam na última coluna da tabela periódica (Estáveis).",
+    category: "Química"
+  },
+  {
+    text: "A mistura de água e sal é considerada uma mistura:",
+    options: ["Heterogênea", "Homogênea", "Coloide", "Pura", "Instável"],
+    correctOptionIndex: 1,
+    explanation: "Possui apenas uma fase visível após a dissolução.",
+    category: "Química"
+  },
+  {
+    text: "O menor componente de um elemento que mantém suas propriedades é o:",
+    options: ["Molécula", "Célula", "Átomo", "Tecido", "Gota"],
+    correctOptionIndex: 2,
+    explanation: "Átomos são os blocos fundamentais da matéria.",
+    category: "Química"
+  },
+  {
+    text: "A organela responsável pela respiração celular é a:",
+    options: ["Cloroplasto", "Ribossomo", "Mitocôndria", "Lisossomo", "Vacúolo"],
+    correctOptionIndex: 2,
+    explanation: "As mitocôndrias produzem energia (ATP) para a célula.",
+    category: "Biologia"
+  },
+  {
+    text: "Qual destes animais é um anfíbio?",
+    options: ["Jacaré", "Baleia", "Sapo", "Tubarão", "Pinguim"],
+    correctOptionIndex: 2,
+    explanation: "Anfíbios têm ciclo de vida na água e na terra.",
+    category: "Biologia"
+  },
+  {
+    text: "O processo pelo qual as plantas produzem seu próprio alimento é a:",
+    options: ["Respiração", "Transpiração", "Fotossíntese", "Digestão", "Germinação"],
+    correctOptionIndex: 2,
+    explanation: "Usa luz solar, CO₂ e água para produzir glicose e oxigênio.",
+    category: "Biologia"
+  },
+  {
+    text: "O principal açúcar circulante no sangue humano é a:",
+    options: ["Lactose", "Frutose", "Glicose", "Sacarose", "Amido"],
+    correctOptionIndex: 2,
+    explanation: "A glicemia mede o nível de glicose no sangue.",
+    category: "Biologia"
+  },
+  {
+    text: "Quantos cromossomos tem uma célula humana normal (diplóide)?",
+    options: ["23", "44", "46", "48", "50"],
+    correctOptionIndex: 2,
+    explanation: "São 23 pares, totalizando 46 cromossomos.",
+    category: "Biologia"
+  },
+  {
+    text: "O grupo sanguíneo considerado 'doador universal' é:",
+    options: ["A+", "B-", "AB+", "O-", "O+"],
+    correctOptionIndex: 3,
+    explanation: "O sangue O- pode ser transfundido em qualquer pessoa.",
+    category: "Biologia"
+  },
+  {
+    text: "Qual destes órgãos pertence ao sistema excretor?",
+    options: ["Coração", "Rim", "Pulmão", "Estômago", "Cérebro"],
+    correctOptionIndex: 1,
+    explanation: "Os rins filtram o sangue e produzem a urina.",
+    category: "Biologia"
+  },
+  {
+    text: "A vacina serve para:",
+    options: ["Curar uma doença instalada", "Prevenir doenças", "Suplementar vitaminas", "Aumentar a massa muscular", "Diminuir o sono"],
+    correctOptionIndex: 1,
+    explanation: "Vacinas estimulam a produção de anticorpos antes do contato com o patógeno.",
+    category: "Biologia"
+  },
+  {
+    text: "Em que ano começou a Primeira Guerra Mundial?",
+    options: ["1910", "1914", "1918", "1939", "1945"],
+    correctOptionIndex: 1,
+    explanation: "Iniciou-se em 1914 após o assassinato do arquiduque Francisco Ferdinando.",
+    category: "História"
+  },
+  {
+    text: "Quem foi o primeiro presidente do Brasil?",
+    options: ["Getúlio Vargas", "D. Pedro II", "Deodoro da Fonseca", "Floriano Peixoto", "Juscelino Kubitschek"],
+    correctOptionIndex: 2,
+    explanation: "Proclamou a República e assumiu o governo provisório em 1889.",
+    category: "História"
+  },
+  {
+    text: "A Revolução Francesa teve como lema:",
+    options: ["Ordem e Progresso", "Paz e Amor", "Liberdade, Igualdade e Fraternidade", "Deus, Pátria e Família", "Vencer ou Morrer"],
+    correctOptionIndex: 2,
+    explanation: "Liberté, Égalité, Fraternité.",
+    category: "História"
+  },
+  {
+    text: "O período colonial brasileiro terminou com a:",
+    options: ["Lei Áurea", "Proclamação da República", "Independência do Brasil", "Chegada da família real", "Guerra do Paraguai"],
+    correctOptionIndex: 2,
+    explanation: "Em 7 de setembro de 1822 o Brasil tornou-se independente de Portugal.",
+    category: "História"
+  },
+  {
+    text: "A muralha da China foi construída principalmente para:",
+    options: ["Beleza estética", "Proteção contra invasores", "Marcar território agrícola", "Prática de esportes", "Ligar cidades"],
+    correctOptionIndex: 1,
+    explanation: "Construída para proteger o império chinês de tribos nômades do norte.",
+    category: "História"
+  },
+  {
+    text: "O regime político de Atenas na Antiguidade clássica era a:",
+    options: ["Monarquia", "Ditadura", "Democracia", "Teocracia", "Oligarquia"],
+    correctOptionIndex: 2,
+    explanation: "Atenas é considerada o berço da democracia ocidental.",
+    category: "História"
+  },
+  {
+    text: "Quem descobriu o caminho marítimo para as Índias contornando a África?",
+    options: ["Cristóvão Colombo", "Pedro Álvares Cabral", "Vasco da Gama", "Américo Vespúcio", "Fernão de Magalhães"],
+    correctOptionIndex: 2,
+    explanation: "Vasco da Gama completou a viagem em 1498.",
+    category: "História"
+  },
+  {
+    text: "Qual civilização antiga construiu as pirâmides de Gizé?",
+    options: ["Maias", "Incas", "Egípcios", "Gregos", "Romanos"],
+    correctOptionIndex: 2,
+    explanation: "Construídas como túmulos para faraós como Queóps.",
+    category: "História"
+  },
+  {
+    text: "Qual é o maior oceano do planeta?",
+    options: ["Atlântico", "Índico", "Antártico", "Pacífico", "Ártico"],
+    correctOptionIndex: 3,
+    explanation: "O Pacífico cobre quase um terço da superfície da Terra.",
+    category: "Geografia"
+  },
+  {
+    text: "O Brasil está localizado em qual continente?",
+    options: ["América Central", "América do Norte", "América do Sul", "Europa", "África"],
+    correctOptionIndex: 2,
+    explanation: "O Brasil ocupa a maior parte do leste da América do Sul.",
+    category: "Geografia"
+  },
+  {
+    text: "Qual é a capital da França?",
+    options: ["Londres", "Berlim", "Roma", "Paris", "Madri"],
+    correctOptionIndex: 3,
+    explanation: "Paris é a capital e cidade mais populosa da França.",
+    category: "Geografia"
+  },
+  {
+    text: "A linha imaginária que divide a Terra em hemisfério Norte e Sul é o:",
+    options: ["Meridiano de Greenwich", "Trópico de Câncer", "Equador", "Trópico de Capricórnio", "Círculo Polar Ártico"],
+    correctOptionIndex: 2,
+    explanation: "O Equador é o círculo máximo equidistante dos pólos.",
+    category: "Geografia"
+  },
+  {
+    text: "O principal rio que atravessa a floresta Amazônica é o:",
+    options: ["Nilo", "Ganges", "Amazonas", "São Francisco", "Paraná"],
+    correctOptionIndex: 2,
+    explanation: "O rio Amazonas é o maior em volume de água do mundo.",
+    category: "Geografia"
+  },
+  {
+    text: "País mais populoso do mundo (atualmente competindo com a Índia):",
+    options: ["Rússia", "EUA", "Brasil", "China", "Japão"],
+    correctOptionIndex: 3,
+    explanation: "China e Índia são os dois países com mais de 1 bilhão de habitantes.",
+    category: "Geografia"
+  },
+  {
+    text: "Qual deserto é o maior do mundo (em área total, incluindo gelo)?",
+    options: ["Saara", "Atacama", "Gobi", "Antártida", "Arábico"],
+    correctOptionIndex: 3,
+    explanation: "Embora frio, a Antártida é classificada como um deserto polar devido à baixa precipitação.",
+    category: "Geografia"
+  },
+  {
+    text: "O ponto mais alto da Terra é o monte:",
+    options: ["Everest", "K2", "Kilimanjaro", "Aconcágua", "Mont Blanc"],
+    correctOptionIndex: 0,
+    explanation: "O Everest tem 8.848 metros acima do nível do mar.",
+    category: "Geografia"
+  },
+  {
+    text: "A capital do estado de São Paulo é:",
+    options: ["Campinas", "Santos", "São Paulo", "Ribeirão Preto", "Sorocaba"],
+    correctOptionIndex: 2,
+    explanation: "A cidade de São Paulo é a capital e centro financeiro do estado.",
     category: "Geografia"
   }
 ];

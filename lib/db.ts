@@ -18,7 +18,9 @@ export interface UserResult {
 }
 
 export const getQuestions = async (): Promise<Question[]> => {
-  return ALL_QUESTIONS;
+  // Shuffle all questions and pick 65
+  const shuffled = [...ALL_QUESTIONS].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 65);
 };
 
 export const saveResult = async (result: Omit<UserResult, "timestamp">) => {
