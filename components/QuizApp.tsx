@@ -32,11 +32,41 @@ export default function QuizApp() {
         setQuestions(data);
         const lb = await getLeaderboard();
         setLeaderboard(lb);
+
+        // Resume progress from localStorage if available
+        const savedProgress = localStorage.getItem(`quiz_progress_${user.uid}`);
+        if (savedProgress) {
+          try {
+            const { currentIndex: savedIndex, score: savedScore, questions: savedQuestions } = JSON.parse(savedProgress);
+            // Only resume if the saved questions set matches the current set length (basic validation)
+            if (savedQuestions && Array.isArray(savedQuestions) && savedQuestions.length === data.length) {
+              setQuestions(savedQuestions);
+              setCurrentIndex(savedIndex);
+              setScore(savedScore);
+            }
+          } catch (e) {
+            console.error("Erro ao carregar progresso salvo", e);
+          }
+        }
+
         setLoading(false);
       }
     }
     init();
   }, [user]);
+
+  // Persist progress when important state changes
+  useEffect(() => {
+    if (user && questions.length > 0 && !showResults) {
+      const progress = {
+        currentIndex,
+        score,
+        questions,
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem(`quiz_progress_${user.uid}`, JSON.stringify(progress));
+    }
+  }, [currentIndex, score, questions, user, showResults]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,18 +82,21 @@ export default function QuizApp() {
     
     if (index === questions[currentIndex].correctOptionIndex) {
       setScore(s => s + 1);
-    } else {
-      // Get AI explanation for wrong answer
-      setIsAiLoading(true);
-      const explanation = await getAiExplanation(
-        questions[currentIndex].text,
-        questions[currentIndex].options[index],
-        questions[currentIndex].options[questions[currentIndex].correctOptionIndex],
-        questions[currentIndex].explanation
-      );
-      setAiExplanation(explanation ?? "Não foi possível gerar uma explicação detalhada no momento.");
-      setIsAiLoading(false);
     }
+  };
+
+  const handleRequestAiExplanation = async () => {
+    if (selectedOption === null) return;
+    
+    setIsAiLoading(true);
+    const explanation = await getAiExplanation(
+      questions[currentIndex].text,
+      questions[currentIndex].options[selectedOption],
+      questions[currentIndex].options[questions[currentIndex].correctOptionIndex],
+      questions[currentIndex].explanation
+    );
+    setAiExplanation(explanation ?? "Não foi possível gerar uma explicação detalhada no momento.");
+    setIsAiLoading(false);
   };
 
   const nextQuestion = () => {
@@ -88,6 +121,8 @@ export default function QuizApp() {
       });
       const lb = await getLeaderboard();
       setLeaderboard(lb);
+      // Clear progress once the quiz is finished
+      localStorage.removeItem(`quiz_progress_${user.uid}`);
     }
   };
 
@@ -98,6 +133,10 @@ export default function QuizApp() {
     setIsAnswered(false);
     setShowResults(false);
     setAiExplanation(null);
+    // Clear progress when resetting manually
+    if (user) {
+      localStorage.removeItem(`quiz_progress_${user.uid}`);
+    }
   };
 
   if (authLoading) return <div className="flex h-screen items-center justify-center"><Loader2 className="animate-spin" /></div>;
@@ -294,6 +333,15 @@ export default function QuizApp() {
                   <p className="text-sm leading-relaxed text-[#475569]">
                     {currentQuestion.explanation}
                   </p>
+
+                  {selectedOption !== currentQuestion.correctOptionIndex && !aiExplanation && !isAiLoading && (
+                    <button 
+                      onClick={handleRequestAiExplanation}
+                      className="mt-2 flex items-center gap-2 text-[10px] font-bold text-[#2563eb] hover:text-blue-700 transition-colors bg-blue-50 px-3 py-2 rounded-lg border border-blue-100"
+                    >
+                      <Brain className="w-3 h-3" /> Ver explicação da IA
+                    </button>
+                  )}
                   
                   {aiExplanation && (
                     <div className="pt-4 border-t border-[#e2e8f0]">
