@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { useAuth } from '@/hooks/use-auth';
 import { getQuestions, saveResult, getLeaderboard, Question, UserResult } from '@/lib/db';
 import { getAiExplanation } from '@/lib/gemini';
@@ -290,10 +290,24 @@ export default function QuizApp() {
                 const showWrong = isAnswered && isSelected && !isCorrect;
 
                 return (
-                  <button
+                  <motion.button
                     key={idx}
                     disabled={isAnswered}
                     onClick={() => handleAnswer(idx)}
+                    whileHover={!isAnswered ? { scale: 1.01, x: 5 } : {}}
+                    whileTap={!isAnswered ? { scale: 0.98 } : {}}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ 
+                      opacity: 1, 
+                      x: 0,
+                      scale: isSelected ? 1.02 : 1,
+                      ...(showWrong ? { x: [0, -10, 10, -10, 10, 0] } : {}),
+                      ...(showCorrect && isSelected ? { scale: [1.02, 1.08, 1.02] } : {})
+                    }}
+                    transition={{ 
+                      duration: showWrong ? 0.4 : 0.2,
+                      delay: idx * 0.05 
+                    }}
                     className={`option-btn w-full text-left p-5 rounded-xl border transition-all flex items-center justify-between group text-base font-medium
                       ${isSelected ? 'selected border-[#2563eb] bg-[#eff6ff] text-[#1e40af] border-2 shadow-sm' : 'border-[#e2e8f0] hover:border-[#cbd5e1] bg-white'}
                       ${showCorrect ? 'correct border-[#10b981] bg-[#ecfdf5] text-[#065f46] !opacity-100 shadow-sm' : ''}
@@ -302,20 +316,32 @@ export default function QuizApp() {
                     `}
                   >
                     <div className="flex items-center gap-4">
-                      <span className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs border
+                      <motion.span 
+                        animate={isSelected ? { scale: [1, 1.2, 1] } : {}}
+                        className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs border
                         ${isSelected ? 'bg-[#2563eb] text-white border-transparent' : 'bg-slate-50 text-slate-400 border-[#e2e8f0]'}
                         ${showCorrect ? 'bg-[#10b981] text-white border-transparent' : ''}
                         ${showWrong ? 'bg-[#ef4444] text-white border-transparent' : ''}
                       `}>
                         {String.fromCharCode(65 + idx)}
-                      </span>
+                      </motion.span>
                       {option}
                     </div>
                     <div className="flex-shrink-0">
-                      {showCorrect && <CheckCircle2 className="text-[#10b981] w-5 h-5" />}
-                      {showWrong && <XCircle className="text-[#ef4444] w-5 h-5" />}
+                      <AnimatePresence>
+                        {showCorrect && (
+                          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
+                            <CheckCircle2 className="text-[#10b981] w-5 h-5" />
+                          </motion.div>
+                        )}
+                        {showWrong && (
+                          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
+                            <XCircle className="text-[#ef4444] w-5 h-5" />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                  </button>
+                  </motion.button>
                 );
               })}
             </div>

@@ -24,6 +24,7 @@ export const getQuestions = async (): Promise<Question[]> => {
 };
 
 export const saveResult = async (result: Omit<UserResult, "timestamp">) => {
+  if (typeof window === 'undefined') return { ...result, timestamp: new Date().toISOString() };
   const results = JSON.parse(localStorage.getItem('quiz_results') || '[]');
   const newResult = { ...result, timestamp: new Date().toISOString() };
   results.push(newResult);
@@ -32,6 +33,7 @@ export const saveResult = async (result: Omit<UserResult, "timestamp">) => {
 };
 
 export const getLeaderboard = async (limitNum = 10): Promise<UserResult[]> => {
+  if (typeof window === 'undefined') return [];
   const results: UserResult[] = JSON.parse(localStorage.getItem('quiz_results') || '[]');
   return results
     .sort((a, b) => b.score - a.score)

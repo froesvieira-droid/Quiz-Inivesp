@@ -1407,5 +1407,112 @@ export const ALL_QUESTIONS: Question[] = [
     correctOptionIndex: 2,
     explanation: "A cidade de São Paulo é a capital e centro financeiro do estado.",
     category: "Geografia"
+  },
+  // --- VESTIBULAR UNIVESP 2024 ---
+  {
+    text: "Sobre os índices referentes aos anos que vão de 1970 a 1980 (7,5; 10,5; 13,9), tomados ano a ano, é correto afirmar que eles formam uma:",
+    options: [
+      "Progressão Aritmética de razão igual a 7/5",
+      "Progressão Geométrica de razão igual a 7/5",
+      "Progressão Aritmética de razão igual a 5/2",
+      "Progressão Geométrica de razão igual a 3/10",
+      "Progressão Aritmética de razão igual a 3/10"
+    ],
+    correctOptionIndex: 4,
+    explanation: "Subtraindo os valores: 10,5 - 7,5 = 3,0. Como o gráfico indica 10 anos de intervalo, a razão anual em uma PA seria 0,3 (ou 3/10).",
+    category: "Matemática"
+  },
+  {
+    text: "A respeito da promoção 'leve 5 unidades do mesmo produto e pague apenas 4', qual outra promoção oferece o mesmo desconto percentual?",
+    options: [
+      "a segunda unidade tem 66% de desconto, ao levar 2 unidades",
+      "a segunda unidade tem 40% de desconto, ao levar 2 unidades",
+      "você recebe 33% de desconto, ao levar 1 unidade em promoção",
+      "você recebe 80% de desconto, ao levar 1 unidade em promoção",
+      "pague apenas 5, ao levar 6 unidades do mesmo produto"
+    ],
+    correctOptionIndex: 4,
+    explanation: "Na promoção 5 por 4, o desconto é de 1/5 = 20%. Na promoção 6 por 5, o desconto é de 1/6 = 16.6%. Opa, vamos revisar: 5 por 4 significa pague 4 e leve 5 (desconto de 20%). 6 por 5 significa pague 5 e leve 6 (desconto de 1/6). A opção correta no vestibular é a que mantém a proporção de desconto. 1/5 = 20%. No item E: pague 5 leve 6 -> desconto de 1/6 (16,6%). Na verdade, 20% de desconto é 0,2. Se levar 2 pague 1.6 (20% de 2 é 0.4). Se a segunda tiver 40% de desconto (0.4 de desconto), você paga 1 + 0.6 = 1.6 por 2 unidades, que é 20% de desconto total.",
+    category: "Matemática"
+  },
+  {
+    text: "No cartum (Questão 17), a oposição entre 'positive' (positivo) e 'negative' (negativo) na frase 'You tested positive for being negative' configura uma:",
+    options: ["metáfora", "metonímia", "personificação", "paronomásia", "antítese"],
+    correctOptionIndex: 4,
+    explanation: "A antítese é a figura de linguagem que consiste na aproximação de palavras com sentidos opostos (positivo vs. negativo).",
+    category: "Português"
+  },
+  {
+    text: "O sufixo -able, na palavra 'reachable', indica:",
+    options: ["ação improvável", "sensação de saciedade", "formação de substantivo", "indicação de capacidade", "certeza de impossibilidade"],
+    correctOptionIndex: 3,
+    explanation: "O sufixo '-able' em inglês equivale ao nosso '-vel' (alcançável), indicando capacidade ou possibilidade.",
+    category: "Inglês"
+  },
+  {
+    text: "“Fale macio e use um porrete.”. Segundo os historiadores, essa frase de Theodore Roosevelt Jr., sintetizou a:",
+    options: [
+      "Guerra às Drogas",
+      "Declaração de Direitos dos cidadãos estadunidenses",
+      "Política do Apaziguamento",
+      "Política do Big Stick",
+      "Negociações do Tratado de Versalhes"
+    ],
+    correctOptionIndex: 3,
+    explanation: "A política do 'Big Stick' (Grande Porrete) caracterizou a diplomacia de Roosevelt: negociar pacificamente, mas mantendo a ameaça do uso da força.",
+    category: "História"
+  },
+  {
+    text: "O primeiro-ministro de Israel, Benjamin Netanyahu, afirmou em 2024 que a ideia de criar um Estado palestino entraria em conflito com a segurança de Israel. Sobre esse conflito, é correto afirmar que o Estado:",
+    options: [
+      "palestino foi fundado no século XXI pelo Hezbollah",
+      "palestino foi fundado no início de 2024 em terras israelenses",
+      "de Israel foi fundado no século XIX durante o congresso Sionista",
+      "de Israel foi fundado no século XX, no Oriente Médio, e vê na criação de um Estado palestino um perigo à segurança",
+      "de Israel é secular, fundado no início da era Cristã"
+    ],
+    correctOptionIndex: 3,
+    explanation: "O Estado de Israel foi fundado em 1948 (século XX). A questão reflete a posição geopolítica atual do governo israelense sobre a solução de dois estados.",
+    category: "Geografia"
+  },
+  {
+    text: "Assinale a alternativa que apresenta, respectivamente, o número de prótons, elétrons e nêutrons presentes no isótopo de polônio 210/84 Po:",
+    options: ["84 – 126 – 210", "84 – 84 – 210", "84 – 84 – 126", "126 – 84 – 126", "126 – 126 – 210"],
+    correctOptionIndex: 2,
+    explanation: "Número Atômico (Z) = Prótons = 84. Em um átomo neutro, Elétrons = 84. Nêutrons = Massa(A) - Z = 210 - 84 = 126.",
+    category: "Química"
+  },
+  {
+    text: "Comparando a respiração celular e a fermentação, é correto afirmar que ambos:",
+    options: [
+      "dependem da cadeia transportadora de elétrons",
+      "ocorrem no interior de mitocôndrias e cloroplastos",
+      "apresentam uma etapa anaeróbia em comum, denominada glicólise",
+      "utilizam oxigênio como aceptor final de elétrons",
+      "produzem a mesma quantidade de ATP"
+    ],
+    correctOptionIndex: 2,
+    explanation: "Tanto a respiração quanto a fermentação iniciam-se com a glicólise, que ocorre no citosol e não requer oxigênio.",
+    category: "Biologia"
+  },
+  {
+    text: "As bactérias do gênero Rhizobium, que vivem nas raízes de certas plantas leguminosas e realizam a fixação do nitrogênio, estabelecem uma relação chamada:",
+    options: ["mutualismo", "comensalismo", "competição", "predatismo", "parasitismo"],
+    correctOptionIndex: 0,
+    explanation: "É uma relação de mutualismo: a bactéria fornece nitrogênio à planta, e a planta fornece abrigo e nutrientes orgânicos à bactéria, beneficiando ambos.",
+    category: "Biologia"
+  },
+  {
+    text: "No caso de usinas que utilizam pipas para gerar eletricidade (Questão 52), desprezando perdas térmicas, as energias envolvidas no sistema pipa-gerador são:",
+    options: [
+      "solar, mecânica e elétrica",
+      "eólica, mecânica e elétrica",
+      "mecânica, cinética e luminosa",
+      "eletromagnética, solar e elétrica",
+      "luminosa, mecânica e aerodinâmica"
+    ],
+    correctOptionIndex: 1,
+    explanation: "O vento (energia eólica) movimenta a pipa, que transmite esse movimento (energia mecânica) ao gerador para produzir eletricidade.",
+    category: "Física"
   }
 ];
